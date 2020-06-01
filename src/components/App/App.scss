@@ -1,13 +1,6 @@
 @import '../../styles/variables';
 
 .container {
-    width: 500px;
+    max-width: 500px;
     margin: 0 auto;
-}
-
-.task-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    
 }

@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+
+.Task {
+    display: flex;
+    align-items: center;
+    height: 90px;
+    background-color: $color-aqua;
+    color: white;
+    padding: 0 3rem;
+
+    &:first-child {
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    &--completed {
+        .Task__title {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+    }
+}
