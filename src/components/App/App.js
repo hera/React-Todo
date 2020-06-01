@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 
 import TaskList from '../TaskList/TaskList';
+import TaskForm from '../TaskForm/TaskForm';
 
 
 class App extends React.Component {
@@ -22,12 +23,18 @@ class App extends React.Component {
         ];
 
     }
+    
+    addTaskHandler (event) {
+        event.preventDefault();
+        
+    }
 
-    render() {
+    render () {
         return (
             <div className="container">
                 <h1>Tasks</h1>
                 <TaskList tasks={this.tasks} />
+                <TaskForm addTaskHandler={this.addTaskHandler} />
             </div>
         );
     }
