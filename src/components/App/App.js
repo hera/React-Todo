@@ -62,7 +62,7 @@ class App extends React.Component {
             return task;
         });
         
-        this.setState(updatedTasks);
+        this.setState({tasks: updatedTasks});
     }
 
     render () {
