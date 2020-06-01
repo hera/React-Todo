@@ -3,6 +3,7 @@
 .Task {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 9rem;
     background-color: $color-aqua;
     color: white;
@@ -15,7 +16,31 @@
     &--completed {
         .Task__title {
             text-decoration: line-through;
+        }
+
+        .Task__title, .Task__checkbox {
             opacity: 0.5;
+        }
+    }
+
+    &__checkbox {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+
+        height: 3rem;
+        width: 3rem;
+        border: 1px solid white;
+        border-radius: 0.3rem;
+        outline: none;
+        cursor: pointer;
+
+        &:checked {
+            background-image: url('./images/tick.svg');
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 }
