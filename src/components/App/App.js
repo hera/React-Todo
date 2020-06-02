@@ -15,22 +15,25 @@ class App extends React.Component {
         this.removeTaskHandler = this.removeTaskHandler.bind(this);
         
         this.state = {
-            tasks: [
-                {
-                    title: 'Organize Garage',
-                    id: 1528817077286,
-                    completed: false
-                },
-                {
-                    title: 'Bake Cookies',
-                    id: 1528817084358,
-                    completed: false
-                }
-            ]
+            tasks: []
         }
 
     }
 
+    componentDidMount () {
+        // if something is stored in the local storage, copy data to the state
+        if (localStorage.getItem('tasks')) {
+            this.setState({
+                tasks: JSON.parse(localStorage.getItem('tasks'))
+            });
+        }
+    }
+
+    // Save updates in the storage
+    
+    componentDidUpdate () {
+        localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
+    }
 
     // Add one more task to the state
     
