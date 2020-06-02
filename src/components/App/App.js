@@ -11,6 +11,8 @@ class App extends React.Component {
 
         this.addTaskHandler = this.addTaskHandler.bind(this);
         this.toggleCompletedHandler = this.toggleCompletedHandler.bind(this);
+        this.clearTasksHandler = this.clearTasksHandler.bind(this);
+        this.removeTaskHandler = this.removeTaskHandler.bind(this);
         
         this.state = {
             tasks: [
@@ -28,6 +30,9 @@ class App extends React.Component {
         }
 
     }
+
+
+    // Add one more task to the state
     
     addTaskHandler = event => {
         event.preventDefault();
@@ -51,12 +56,15 @@ class App extends React.Component {
         titleElement.value = '';
     }
 
+
+    // Mark a task as completed / incompleted
+
     toggleCompletedHandler = event => {
 
-        const checkbox = event.target;
+        const element = event.target;
 
         const updatedTasks = this.state.tasks.map(task => {
-            if (task.id == checkbox.dataset.id) {
+            if (task.id == element.dataset.id) {
                 task.completed = !task.completed;
             }
             return task;
@@ -65,12 +73,43 @@ class App extends React.Component {
         this.setState({tasks: updatedTasks});
     }
 
+
+    // Clear all tasks in the state
+    
+    clearTasksHandler = event => {
+        this.setState({tasks: []});
+    }
+
+    removeTaskHandler = event => {
+        event.preventDefault();
+
+        const updatedTasks = [];
+        
+        this.state.tasks.forEach(task => {
+            if (task.id != event.target.dataset.id) {
+                updatedTasks.push(task);
+            }
+        });
+
+        this.setState({tasks: updatedTasks});
+    }
+
     render () {
         return (
             <div className="container">
                 <h1>Tasks</h1>
-                <TaskList tasks={this.state.tasks} toggleCompletedHandler={this.toggleCompletedHandler} />
+
+                <TaskList
+                    tasks={this.state.tasks}
+                    toggleCompletedHandler={this.toggleCompletedHandler}
+                    removeTaskHandler={this.removeTaskHandler}
+                />
+
                 <TaskForm addTaskHandler={this.addTaskHandler} />
+
+                <div>
+                    <a href="#" className="clear-all" onClick={this.clearTasksHandler}>Clear All Tasks</a>
+                </div>
             </div>
         );
     }

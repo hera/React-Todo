@@ -18,8 +18,17 @@
             text-decoration: line-through;
         }
 
-        .Task__title, .Task__checkbox {
+        & > * {
             opacity: 0.5;
+        }
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+
+        & > * {
+            margin-left: 1.5rem;
         }
     }
 
@@ -34,7 +43,6 @@
         width: 3rem;
         border: 1px solid white;
         border-radius: 0.3rem;
-        outline: none;
         cursor: pointer;
 
         &:checked {
@@ -42,5 +50,15 @@
             background-repeat: no-repeat;
             background-position: center;
         }
+    }
+
+    &__remove {
+        text-indent: -99999px;
+        height: 3rem;
+        width: 3rem;
+        overflow: hidden;
+        background-image: url('./images/cross.svg');
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }

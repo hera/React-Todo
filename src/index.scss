@@ -17,3 +17,12 @@ h1 {
     font-size: 6rem;
     color: $color-aqua-extra-dark;
 }
+
+a {
+    color: $color-aqua-extra-dark;
+    transition: color 0.3s;
+
+    &:hover {
+    color: $color-aqua-dark;
+    }
+}
