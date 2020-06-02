@@ -5,12 +5,17 @@
     align-items: center;
     justify-content: space-between;
     height: 9rem;
-    background-color: $color-aqua;
+    background-color: $color-aqua-light;
     color: white;
     padding: 0 3rem;
+    cursor: default;
 
     &:first-child {
         border-radius: 1rem 1rem 0 0;
+    }
+
+    &:nth-child(even) {
+        background-color: $color-aqua;
     }
 
     &--completed {
