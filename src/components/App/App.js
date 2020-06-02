@@ -11,7 +11,7 @@ class App extends React.Component {
 
         this.addTaskHandler = this.addTaskHandler.bind(this);
         this.toggleCompletedHandler = this.toggleCompletedHandler.bind(this);
-        this.clearTasksHandler = this.clearTasksHandler.bind(this);
+        this.removeAllTasksHandler = this.removeAllTasksHandler.bind(this);
         this.removeTaskHandler = this.removeTaskHandler.bind(this);
         
         this.state = {
@@ -76,7 +76,7 @@ class App extends React.Component {
 
     // Clear all tasks in the state
     
-    clearTasksHandler = event => {
+    removeAllTasksHandler = event => {
         this.setState({tasks: []});
     }
 
@@ -108,7 +108,7 @@ class App extends React.Component {
                 <TaskForm addTaskHandler={this.addTaskHandler} />
 
                 <div>
-                    <a href="#" className="clear-all" onClick={this.clearTasksHandler}>Clear All Tasks</a>
+                    <a href="#" className="clear-all" onClick={this.removeAllTasksHandler}>Clear All Tasks</a>
                 </div>
             </div>
         );
