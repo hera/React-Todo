@@ -82,12 +82,10 @@ class App extends React.Component {
 
     removeTaskHandler = event => {
         event.preventDefault();
-
-        const updatedTasks = [];
         
-        this.state.tasks.forEach(task => {
+        const updatedTasks = this.state.tasks.filter(task => {
             if (task.id != event.target.dataset.id) {
-                updatedTasks.push(task);
+                return true
             }
         });
 
