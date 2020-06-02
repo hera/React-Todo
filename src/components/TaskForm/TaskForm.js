@@ -6,7 +6,7 @@ class TaskForm extends React.Component {
         const { addTaskHandler } = this.props;
 
         return (
-            <form className="TaskForm" onSubmit={addTaskHandler}>
+            <form className="TaskForm" onSubmit={addTaskHandler} autoComplete="off">
                 <input type="text" id="taskTitle" placeholder="Add Task..." />
                 <input type="submit" id="taskSubmit" value="Add" />
             </form>
