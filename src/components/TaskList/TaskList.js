@@ -4,7 +4,7 @@ import './TaskList.scss';
 import Task from '../Task/Task';
 
 export default function TaskList (props) {
-    const { tasks, handleDeleteTask } = props;
+    const { tasks, handleDeleteTask, handleToggleCompleted } = props;
 
     return (
         <ul className="TaskList">
@@ -14,7 +14,8 @@ export default function TaskList (props) {
                     <Task 
                         task={task}
                         key={task.id}
-                        handleDeleteTask={handleDeleteTask} 
+                        handleDeleteTask={handleDeleteTask}
+                        handleToggleCompleted={handleToggleCompleted}
                     />
                 );
             })

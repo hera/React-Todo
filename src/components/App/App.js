@@ -38,7 +38,7 @@ export default function App () {
     function handleFormSubmit (event) {
         event.preventDefault();
 
-        dispatch({type: 'add', payload: formTask});
+        dispatch({type: 'ADD', payload: formTask});
 
         // clear form field
         setFormTask('');
@@ -46,12 +46,16 @@ export default function App () {
 
     function handleResetTasks (event) {
         event.preventDefault();
-        dispatch({type: 'reset'});
+        dispatch({type: 'RESET'});
     }
 
     function handleDeleteTask (event, task) {
         event.preventDefault();
-        dispatch({type: 'delete', task});
+        dispatch({type: 'DELETE', task});
+    }
+
+    function handleToggleCompleted (event, task) {
+        dispatch({type: 'TOGGLE_COMPLETED', task});
     }
 
     
@@ -61,7 +65,7 @@ export default function App () {
     // Load all tasks from local storage on first render
     useEffect(() => {
         dispatch({
-            type: 'pull',
+            type: 'PULL',
             payload: pullStorage('tasks')
         });
     }, []);
@@ -77,7 +81,11 @@ export default function App () {
         <div className="container">
             <h1>Tasks</h1>
 
-            <TaskList tasks={state} handleDeleteTask={handleDeleteTask} />
+            <TaskList
+                tasks={state}
+                handleDeleteTask={handleDeleteTask}
+                handleToggleCompleted={handleToggleCompleted}
+            />
 
             <TaskForm
                 formTask={formTask}
@@ -86,7 +94,7 @@ export default function App () {
             />
 
             <div>
-                <a href="#" onClick={handleResetTasks} className="clear-all">Clear All Tasks</a>
+                <a href="/#" onClick={handleResetTasks} className="clear-all">Clear All Tasks</a>
             </div>
         </div>
     );
