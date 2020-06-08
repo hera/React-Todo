@@ -44,9 +44,14 @@ export default function App () {
         setFormTask('');
     }
 
-    function resetTasks (event) {
+    function handleResetTasks (event) {
         event.preventDefault();
         dispatch({type: 'reset'});
+    }
+
+    function handleDeleteTask (event, task) {
+        event.preventDefault();
+        dispatch({type: 'delete', task});
     }
 
     
@@ -72,7 +77,7 @@ export default function App () {
         <div className="container">
             <h1>Tasks</h1>
 
-            <TaskList tasks={state} dispatch={dispatch} />
+            <TaskList tasks={state} handleDeleteTask={handleDeleteTask} />
 
             <TaskForm
                 formTask={formTask}
@@ -81,7 +86,7 @@ export default function App () {
             />
 
             <div>
-                <a href="#" onClick={resetTasks} className="clear-all">Clear All Tasks</a>
+                <a href="#" onClick={handleResetTasks} className="clear-all">Clear All Tasks</a>
             </div>
         </div>
     );

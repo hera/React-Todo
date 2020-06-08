@@ -8,11 +8,15 @@ export default function tasksReducer (state, action) {
             return [
                 ...state,
                 {
-                    item: action.payload,
+                    title: action.payload,
                     completed: false,
                     id: Date.now()
                 }
             ];
+        case 'delete':
+            return state.filter((item) => {
+                return item.id !== action.task.id;
+            });
         case 'reset':
             // delete all tasks
             return [];

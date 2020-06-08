@@ -3,32 +3,16 @@ import './Task.scss';
 
 
 export default function Task (props) {
-    const { task, dispatch } = props;
+    const { task, handleDeleteTask } = props;
     const { title, completed, id } = task;
 
     return (
-        null
+        <li className={ completed ? 'Task Task--completed' : 'Task'}>
+            <span className="Task__title">{ title }</span>
+            <div className="Task__controls">
+                <a href="#" onClick={(event) => handleDeleteTask(event, task)} className="Task__delete">Delete</a>
+                <input type="checkbox" className="Task__checkbox" />
+            </div>
+        </li>
     );
 }
-
-/*
-class Task extends React.Component {
-    render () {
-        const { title, id, completed } = this.props.task;
-        const {toggleCompletedHandler, removeTaskHandler} = this.props;
-
-        return (
-            <li className={ completed ? 'Task Task--completed' : 'Task'}>
-                <span className="Task__title">{ title }</span>
-                <div className="Task__controls">
-                    <a href="#" data-id={id} onClick={removeTaskHandler} className="Task__remove">Remove</a>
-                    <input type="checkbox" className="Task__checkbox" data-id={id} onChange={toggleCompletedHandler} checked={completed} />
-                </div>
-            </li>
-        );
-    }
-}
-
-export default Task;
-
-*/
