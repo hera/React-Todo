@@ -13,6 +13,9 @@ export default function tasksReducer (state, action) {
                     id: Date.now()
                 }
             ];
+        case 'reset':
+            // delete all tasks
+            return [];
         default:
             return state;
     }

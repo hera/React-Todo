@@ -28,20 +28,25 @@ export default function App () {
     }
 
 
-    /* Form */
+    /* Actions on tasks */
     // --------------------------------------------------------------------------------------
 
-    function handleFormChange(event) {
+    function handleFormChange (event) {
         setFormTask(event.target.value);
     }
 
-    function handleFormSubmit(event) {
+    function handleFormSubmit (event) {
         event.preventDefault();
 
         dispatch({type: 'add', payload: formTask});
 
         // clear form field
         setFormTask('');
+    }
+
+    function resetTasks (event) {
+        event.preventDefault();
+        dispatch({type: 'reset'});
     }
 
     
@@ -76,7 +81,7 @@ export default function App () {
             />
 
             <div>
-                <a href="#" className="clear-all">Clear All Tasks</a>
+                <a href="#" onClick={resetTasks} className="clear-all">Clear All Tasks</a>
             </div>
         </div>
     );
