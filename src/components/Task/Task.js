@@ -1,6 +1,17 @@
 import React from 'react';
 import './Task.scss';
 
+
+export default function Task (props) {
+    const { task, dispatch } = props;
+    const { title, completed, id } = task;
+
+    return (
+        null
+    );
+}
+
+/*
 class Task extends React.Component {
     render () {
         const { title, id, completed } = this.props.task;
@@ -19,3 +30,5 @@ class Task extends React.Component {
 }
 
 export default Task;
+
+*/

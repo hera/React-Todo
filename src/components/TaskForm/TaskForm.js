@@ -1,17 +1,13 @@
 import React from 'react';
 import './TaskForm.scss';
 
-class TaskForm extends React.Component {
-    render () {
-        const { addTaskHandler } = this.props;
+export default function TaskForm (props) {
+    const { formTask, handleFormChange, handleFormSubmit } = props;
 
-        return (
-            <form className="TaskForm" onSubmit={addTaskHandler} autoComplete="off">
-                <input type="text" id="taskTitle" placeholder="Add Task..." />
-                <input type="submit" id="taskSubmit" value="Add" />
-            </form>
-        );
-    }
+    return (
+        <form className="TaskForm" onSubmit={handleFormSubmit} autoComplete="off">
+            <input type="text" value={formTask} onChange={handleFormChange} id="taskTitle" placeholder="Add Task..." />
+            <input type="submit" value="Add" id="taskSubmit" />
+        </form>
+    );
 }
-
-export default TaskForm;

@@ -3,21 +3,16 @@ import './TaskList.scss';
 
 import Task from '../Task/Task';
 
+export default function TaskList (props) {
+    const { tasks, dispatch } = props;
 
-class TaskList extends React.Component {
-    render () {
-        const {tasks, toggleCompletedHandler, removeTaskHandler} = this.props;
-
-        return (
-            <ul className="TaskList">
-                {
-                    tasks.map(task => {
-                        return <Task task={task} key={task.id} toggleCompletedHandler={toggleCompletedHandler} removeTaskHandler={removeTaskHandler} />
-                    })
-                }
-            </ul>
-        );
-    }
+    return (
+        <ul className="TaskList">
+        {
+            tasks && tasks.map(task => {
+                return <Task task={task} key={task.id} dispatch={dispatch} />
+            })
+        }
+        </ul>
+    );
 }
-
-export default TaskList;
