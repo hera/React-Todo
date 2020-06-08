@@ -1,0 +1,28 @@
+@import '../node_modules/normalize.css/normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+@import './styles/variables';
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: $color-gray;
+    font-size: 1.6rem;
+}
+
+h1 {
+    font-size: 6rem;
+    color: $color-aqua-extra-dark;
+}
+
+a {
+    color: $color-aqua-extra-dark;
+    transition: color 0.3s;
+
+    &:hover {
+        color: $color-aqua-dark;
+    }
+}

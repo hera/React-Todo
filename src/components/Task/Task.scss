@@ -1,0 +1,69 @@
+@import '../../styles/variables';
+
+.Task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 9rem;
+    background-color: $color-aqua-light;
+    color: white;
+    padding: 0 3rem;
+    cursor: default;
+
+    &:first-child {
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    &:nth-child(even) {
+        background-color: $color-aqua;
+    }
+
+    &--completed {
+        .Task__title {
+            text-decoration: line-through;
+        }
+
+        & > * {
+            opacity: 0.5;
+        }
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+
+        & > * {
+            margin-left: 1.5rem;
+        }
+    }
+
+    &__checkbox {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+
+        height: 3rem;
+        width: 3rem;
+        border: 1px solid white;
+        border-radius: 0.3rem;
+        cursor: pointer;
+
+        &:checked {
+            background-image: url('./images/tick.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    &__delete {
+        text-indent: -99999px;
+        height: 3rem;
+        width: 3rem;
+        overflow: hidden;
+        background-image: url('./images/cross.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
